@@ -1,14 +1,52 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import SignInSide from "./containers/SignIn";
+import SignUp from "./containers/SignUp";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Home from "./containers/Home";
+import Detail from "./containers/Detail";
+import Contact from "./containers/Contact";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+	<React.StrictMode>
+		<BrowserRouter>
+			<Routes>
+				<Route path="/" element={<App />}>
+					<Route path="/home" element={<Home />} />
+					<Route
+						path="/detail"
+						element={
+							<ProtectedRoute>
+								<Detail />
+							</ProtectedRoute>
+						}
+					/>
+					<Route path="/contactus" element={<Contact />} />
+				</Route>
+				<Route
+					path="/signin"
+					element={
+						<ProtectedRoute loginOnly={false}>
+							<SignInSide />
+						</ProtectedRoute>
+					}
+				/>
+				<Route
+					path="/signup"
+					element={
+						<ProtectedRoute loginOnly={false}>
+							<SignUp />
+						</ProtectedRoute>
+					}
+				/>
+			</Routes>
+		</BrowserRouter>
+	</React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
