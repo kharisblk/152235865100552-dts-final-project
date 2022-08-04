@@ -7,7 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SignInSide from "./containers/SignIn";
 import SignUp from "./containers/SignUp";
 import ProtectedRoute from "./components/ProtectedRoute";
-import Home from "./containers/Home";
+// import Home from "./containers/Home";
+import HomePage from "./containers/HomePage";
 import Detail from "./containers/Detail";
 import Contact from "./containers/Contact";
 
@@ -17,7 +18,8 @@ root.render(
 		<BrowserRouter>
 			<Routes>
 				<Route path="/" element={<App />}>
-					<Route path="/home" element={<Home />} />
+					{/* <Route path="/home" element={<Home />} /> */}
+					<Route path="/home" element={<HomePage />} />
 					<Route
 						path="/detail"
 						element={
