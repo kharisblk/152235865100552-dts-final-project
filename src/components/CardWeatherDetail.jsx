@@ -6,8 +6,8 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-
 import Typography from "@mui/material/Typography";
+import { WEATHER_API_URL, WEATHER_API_KEY } from "../apis/OpenWeather"
 
 export default function CardWeatherDetail({ city }) {
     // const theme = useTheme();
@@ -17,7 +17,7 @@ export default function CardWeatherDetail({ city }) {
     const [data, setData] = useState({});
     // const [location, setLocation] = useState(loc);
 
-    const WEATHER_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=92be1b944686b352e3faab12256e4b4b&units=metric`
+    const WEATHER_URL = `${WEATHER_API_URL}/weather?q=${city}&appid=${WEATHER_API_KEY}&units=metric`
     // const WEATHER_URL = `https://api.openweathermap.org/data/2.5/weather?q=bandung&appid=92be1b944686b352e3faab12256e4b4b&units=metric`
 
     useEffect(() => {
@@ -32,7 +32,7 @@ export default function CardWeatherDetail({ city }) {
             }
         };
         fetchDataWeather();
-    }, []);
+    }, [WEATHER_URL]);
     return (
         // <Box>
         <Card sx={{

@@ -21,7 +21,7 @@ export default function Forecast() {
     // const [location, setLocation] = useState(loc);
 
     // const WEATHER_URL = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=92be1b944686b352e3faab12256e4b4b&units=metric`
-    const WEATHER_URL = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=92be1b944686b352e3faab12256e4b4b&units=metric`
+    const WEATHER_URL = `${WEATHER_API_URL}/forecast?q=${city}&appid=${WEATHER_API_KEY}&units=metric`
 
 
     useEffect(() => {
@@ -36,7 +36,7 @@ export default function Forecast() {
             }
         };
         fetchDataForecast();
-    }, []);
+    }, [WEATHER_URL]);
 
     const dayInAWeek = new Date().getDay();
     const forecastDays = WEEK_DAYS.slice(dayInAWeek, WEEK_DAYS.length).concat(WEEK_DAYS.slice(0, dayInAWeek));
