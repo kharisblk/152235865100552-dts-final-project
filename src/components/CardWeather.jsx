@@ -43,7 +43,7 @@ export default function CardWeather(city) {
 					justifyContent: "space-between",
 					width: "400px",
 					color: "#fff",
-					backgroundColor: "#808080",
+					backgroundColor: "#5F9EA0",
 					borderRadius: "6px",
 					margin: "20px auto 0 auto",
 					padding: "0 20px 20px 20px",
