@@ -4,7 +4,7 @@ import axios from "axios";
 const GeoDbAPI = axios.create({
 	baseURL: "https://wft-geo-db.p.rapidapi.com/v1/geo",
 	headers: {
-		"X-RapidAPI-Key": "9c5ca593bdmsh34c33ef5d35bd58p142d78jsnc7709a6f6ea7",
+		"X-RapidAPI-Key": process.env.REACT_APP_GEODB_KEY,
 		"X-RapidAPI-Host": "wft-geo-db.p.rapidapi.com",
 	},
 	params: {
